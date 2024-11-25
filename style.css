@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Tiny5:wght@400;700&display=swap');
+
+* {
+    box-sizing: content-box;
+}
+
+body {
+    margin: 0;
+    font: normal 14px 'tiny5', sans-serif;
+    background: url('img/bg.png');
+}
+
+a {
+    color: inherit;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    min-width: 100vw;
+    flex-direction: column;
+}
+
+#map {
+    background: url('img/map.webp') no-repeat center;
+    background-size: cover;
+    height: 600px;
+    width: 900px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 10px double wheat;
+    position: relative;
+
+    img {
+        position: absolute;
+        z-index: 0;
+    }
+
+    #ruin {
+        width: calc(325px/2);
+        height: auto;
+        top: 4px;
+        right: 237px;
+    }
+
+    #tree-1 {
+        width: calc(191px/2);
+        height: auto;
+        top: 23px;
+        right: 422px;
+    }
+    #tree-2 {
+        width: calc(170px/2);
+        height: auto;
+        bottom: 125px;
+        left: 52px;
+    }
+}
+
+@keyframes floating {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-2px);
+    }
+}
+
+@keyframes jump {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes tickle {
+    0%, 100% {
+        transform: translateY(0px) translateX(0px);
+    }
+    20%, 60% {
+        transform: translateX(-3px);
+    }
+    40%, 80% {
+        transform: translateX(3px);
+    }
+}
+
+#character {
+    width: 25px;
+    height: 25px;
+    background: url(img/char-default.png) no-repeat center;
+    background-size: 20px;
+    display: block;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    animation: floating 1s infinite;
+
+    &.go-left {
+        background-image: url(img/char-left.png);
+    }
+    &.go-right {
+        background-image: url(img/char-right.png);
+    }
+    &.go-up {
+        background-image: url(img/char-up.png);
+    }
+    &.jump {
+        animation: jump .5s ease-in-out;
+    }
+    &.tickle {
+        animation: tickle .3s ease-in-out 2;
+    }
+
+}
+
+#talk {
+    display: none;
+    text-align: center;
+    padding: 2px 10px;
+    text-wrap: nowrap;
+    position: absolute;
+    bottom: 30px;
+    background: white;
+    border-radius: 2px;
+    border: 3px double black;
+    z-index: 100;
+}
